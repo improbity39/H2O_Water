@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/H2O_Water.iml" filepath="$PROJECT_DIR$/H2O_Water.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/H2O_Water.iml" filepath="$PROJECT_DIR$/.idea/H2O_Water.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/.idea/H2O_Water.iml" filepath="$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/.idea/H2O_Water.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H2O_Water.iml" filepath="$PROJECT_DIR$/H2O_Water.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/app/app.iml" filepath="$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/page2.iml" filepath="$PROJECT_DIR$/../../../user/AndroidStudioProjects/H2O_Water/page2.iml" />
