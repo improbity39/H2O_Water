@@ -12,113 +12,93 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="125dp"
-            android:text="前後比較"
-            android:textColor="@android:color/holo_blue_light"
-            android:textSize="30sp" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textView10"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="一星期前體重:"
-                android:textSize="24sp" />
+                android:text="一周前體重:"
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/tv_LastweekW"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
+                android:id="@+id/tv_beforeWeekW"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingRight="200dp"
-                android:textSize="24sp" />
-
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="30dp"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="一周後體重:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_afterWeekW"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="前後比較:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_difference"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="一星期後體重:"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/tv_NextweekW"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingRight="200dp"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="前後相差:"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/tv_DifferenceW"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingRight="250dp"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="0dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="給予意見"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_inopinion"
+                android:id="@+id/pt_opinionInput"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/bt_sentop"
+                android:id="@+id/bt_sentAndExit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="送出並關閉" />
         </LinearLayout>
-
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
