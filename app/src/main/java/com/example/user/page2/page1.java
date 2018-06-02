@@ -1,6 +1,8 @@
 package com.example.user.page2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Button;
 
 public class page1 extends AppCompatActivity {
     protected Button start;
+    protected Boolean cheak_first;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,11 +18,25 @@ public class page1 extends AppCompatActivity {
 
         start = (Button) findViewById(R.id.btn_start);
 
+
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        final SharedPreferences.Editor editor = pref.edit();
+        cheak_first = pref.getBoolean("KEY_FIRST",true);
+
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {//start button
-                Intent intent = new Intent(page1.this,page2.class);
-                startActivity(intent);
+                if(cheak_first == true){
+                    editor.putBoolean("KEY_FIRST",false);
+                    editor.apply();
+                    Intent intent = new Intent(page1.this,page2.class);
+                    startActivity(intent);
+                } else if(cheak_first == false){
+                    Intent intent = new Intent(page1.this,page4.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }
