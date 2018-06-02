@@ -21,6 +21,7 @@ public class page3 extends AppCompatActivity {
         Intent intent = getIntent();
         String bmi = intent.getStringExtra("BMI_EXTRA");
         String age = intent.getStringExtra("AGE_EXTRA");
+        edt_bmi.setText(bmi);
         exit.setOnClickListener(new Button.OnClickListener(){
 
             @Override
