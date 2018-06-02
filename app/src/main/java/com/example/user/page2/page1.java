@@ -18,8 +18,7 @@ public class page1 extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(page1.this,page2.class);
+                Intent intent = new Intent(page1.this,page2.class);
                 startActivity(intent);
             }
         });
