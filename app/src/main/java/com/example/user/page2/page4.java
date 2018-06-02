@@ -21,7 +21,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
 
 public class page4 extends Activity {
 
@@ -48,9 +47,9 @@ public class page4 extends Activity {
         list = new ArrayList<String>();
         for(int x=1;x<7;x++) {
             list.add("專案" + x);
-            listShow.add(true);
+            listShow.add(false);
         }
-        ListAdapter adapterItem = new com.example.user.page2.ListAdapter(this,list);
+        ListAdapter adapterItem = new Adapter(this,list);
         listview.setAdapter(adapterItem);
         buton.setOnClickListener(new Button.OnClickListener(){
 
@@ -63,7 +62,7 @@ public class page4 extends Activity {
                     {
                         flag = 1;
                     }
-                    System.out.println(listShow.get(x));
+//                    System.out.println(listShow.get(x));
                 }
                 if(flag == 1){
                     Toast.makeText(page4.this, "還沒完成", Toast.LENGTH_SHORT).show();

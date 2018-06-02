@@ -12,7 +12,7 @@ import android.widget.CheckedTextView;
 
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter
+public class Adapter extends BaseAdapter
 {
     private Activity activity;
     private List<String> mList;
@@ -20,7 +20,7 @@ public class ListAdapter extends BaseAdapter
     private static LayoutInflater inflater = null;
 
 
-    public ListAdapter(Activity a, List<String> list)
+    public Adapter(Activity a, List<String> list)
     {
         activity = a;
         mList = list;
