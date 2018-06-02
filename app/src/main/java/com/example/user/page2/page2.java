@@ -60,6 +60,7 @@ public class page2 extends AppCompatActivity {
                     float weight1 = Float.parseFloat(weight.getEditableText().toString());
                     float height1 = Float.parseFloat(height.getEditableText().toString());
                     float bmi = weight1/(height1*height1/10000);
+                    int AGE = Integer.parseInt(age.getEditableText().toString());
                     String bmi_str =mDecimalFormat.format(bmi);
                     if(flag==0){
                         Toast.makeText(page2.this,"Please choice sex", LENGTH_SHORT).show();
@@ -70,11 +71,11 @@ public class page2 extends AppCompatActivity {
                     else if(flag == 2 ){
                         Toast.makeText(page2.this,"You are boy!",Toast.LENGTH_SHORT).show();
                     }
-                    System.out.println(bmi_str);
                     Intent intent = new Intent(page2.this,page3.class);
                     intent.putExtra("BMI_EXTRA",bmi_str);
+                    intent.putExtra("AGE_EXTRA",AGE);
                     startActivity(intent);
-                    
+
                 }
             }
         });
