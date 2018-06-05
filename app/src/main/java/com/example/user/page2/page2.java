@@ -33,7 +33,7 @@ public class page2 extends AppCompatActivity {
         age = (EditText)this.findViewById(R.id.age);
         weight = (EditText)this.findViewById(R.id.weight);
         height = (EditText)this.findViewById(R.id.height);
-        final DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
+        final DecimalFormat mDecimalFormat = new DecimalFormat("#.00");
         btn_boy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

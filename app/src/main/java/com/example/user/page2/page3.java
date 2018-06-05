@@ -30,6 +30,7 @@ public class page3 extends AppCompatActivity {
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         final Double a = Double.parseDouble(bmi);
+        System.out.println(a);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -37,11 +38,12 @@ public class page3 extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
+                            float flag = pStatus;
                             progressBar.setProgress((int) pStatus);
-                            double bmi=((float)pStatus);
-                            DecimalFormat df = new DecimalFormat("#.00");
+                            Float bmi=flag;
+                            DecimalFormat df = new DecimalFormat("#.0");
                             String bmi2 = df.format(bmi);
-                            txtProgress.setText("BMI : " + df.format(Float.parseFloat(bmi2)*0.4));
+                            txtProgress.setText("BMI : " + df.format(Float.parseFloat(bmi2)*0.40));
                         }
                     });
                     try {
