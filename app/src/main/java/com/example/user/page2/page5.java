@@ -33,6 +33,7 @@ public class page5 extends AppCompatActivity {
                     float weight = Float.parseFloat(re_weight.getEditableText().toString());
                     edit.putFloat("KEY_REWEIGHT",weight);
                     edit.apply();
+                    re_weight.setText("");
                     Intent intent = new Intent(page5.this,page6.class);
                     startActivity(intent);
                 } else {

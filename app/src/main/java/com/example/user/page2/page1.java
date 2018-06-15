@@ -18,7 +18,7 @@ public class page1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
-
+        Intent intent1 = getIntent();
         start = (Button) findViewById(R.id.btn_start);
         SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = pref.edit();

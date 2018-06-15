@@ -21,7 +21,7 @@ public class page6 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page6);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
         final SharedPreferences.Editor edit = pref.edit();
         weight_Before = (TextView)findViewById(R.id.tv_beforeWeekW);
@@ -29,7 +29,7 @@ public class page6 extends AppCompatActivity {
         difference = (TextView)findViewById(R.id.tv_difference);
         exit = (Button)findViewById(R.id.bt_sentAndExit);
         float weight1 = pref.getFloat("KEY_WEIGHT1",0);
-        float weight2 = pref.getFloat("KEY_REWEIGHT",0);
+        final float weight2 = pref.getFloat("KEY_REWEIGHT",0);
         float weight_d = weight2-weight1;
         String weight1toS = String.valueOf(weight1);
         String weight2toS = String.valueOf(weight2);
@@ -41,8 +41,10 @@ public class page6 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                moveTaskToBack(true);
-                android.os.Process.killProcess(android.os.Process.myPid());
+                edit.putFloat("KEY_WEIGHT1",weight2);
+                edit.apply();
+                Intent intent1 = new Intent(page6.this,page1.class);
+                startActivity(intent1);
             }
         });
 
