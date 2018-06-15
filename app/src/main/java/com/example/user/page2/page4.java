@@ -99,7 +99,7 @@ public class page4 extends Activity {
             }
 
         }
-        ListAdapter adapterItem = new Adapter(this, list);
+        ListAdapter adapterItem = new Adapter(this, list,listShow);
         listview.setAdapter(adapterItem);
         Calendar cal = Calendar.getInstance();
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;
@@ -119,8 +119,9 @@ public class page4 extends Activity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 CheckedTextView chkItem = (CheckedTextView) v.findViewById(R.id.checklist);
                 chkItem.setChecked(!chkItem.isChecked());
-                listShow.set(position, chkItem.isChecked());
+                listShow.set(position,chkItem.isChecked());
                 editor.putBoolean("listshow"+position,chkItem.isChecked());
+                editor.apply();
             }
         });
         /*if(first_p4 == true) {

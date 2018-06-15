@@ -1,6 +1,7 @@
 package com.example.user.page2;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,14 +17,16 @@ public class Adapter extends BaseAdapter
 {
     private Activity activity;
     private List<String> mList;
+    private List<Boolean> tflist;
 
     private static LayoutInflater inflater = null;
 
 
-    public Adapter(Activity a, List<String> list)
+    public Adapter(Activity a, List<String> list,List<Boolean> listshow)
     {
         activity = a;
         mList = list;
+        tflist = listshow;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -57,6 +60,7 @@ public class Adapter extends BaseAdapter
         CheckedTextView chkBshow = (CheckedTextView) vi.findViewById(R.id.checklist);
 
         chkBshow.setText(mList.get(position).toString());
+        chkBshow.setChecked(tflist.get(position));
 
         return vi;
     }
