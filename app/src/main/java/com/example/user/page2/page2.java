@@ -64,6 +64,7 @@ public class page2 extends AppCompatActivity {
                 {
                     float weight1 = Float.parseFloat(weight.getEditableText().toString());
                     float height1 = Float.parseFloat(height.getEditableText().toString());
+                    edit.putFloat("KEY_HIGHT",height1);
                     edit.putFloat("KEY_WEIGHT1",weight1);
                     edit.apply();
                     float bmi = weight1/(height1*height1/10000);

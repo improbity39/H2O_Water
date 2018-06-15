@@ -30,6 +30,11 @@ public class page6 extends AppCompatActivity {
         exit = (Button)findViewById(R.id.bt_sentAndExit);
         float weight1 = pref.getFloat("KEY_WEIGHT1",0);
         final float weight2 = pref.getFloat("KEY_REWEIGHT",0);
+        float height = pref.getFloat("KEY_HIGHT",0);
+        float bmi = weight2/(height*height/10000);
+        String bmi_str = String.valueOf(bmi);
+        edit.putString("BMI",bmi_str);
+        edit.apply();
         float weight_d = weight2-weight1;
         String weight1toS = String.valueOf(weight1);
         String weight2toS = String.valueOf(weight2);

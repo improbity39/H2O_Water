@@ -171,6 +171,8 @@ public class page4 extends Activity {
                 }
                 else
                 {
+                    editor.putBoolean("KEY_FIRST_p4",true);
+                    editor.apply();
                     Intent intent = new Intent(page4.this,page5.class);
                     startActivity(intent);
                 }
