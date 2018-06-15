@@ -26,6 +26,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 
 public class page4 extends Activity {
@@ -35,6 +36,7 @@ public class page4 extends Activity {
     List<Boolean> listShow; // 這個用來記錄哪幾個 item 是被打勾的
     private Button buton;
     private TextView tx;
+    private TextView bm;
     private static final int msgKey1 = 1;
     @SuppressLint("SetTextI18n")
     @Override
@@ -45,9 +47,14 @@ public class page4 extends Activity {
         buton = (Button)findViewById(R.id.btn_finish);
         listview = (ListView) findViewById(R.id.lt);
         tx = (TextView)findViewById(R.id.txv);
+        bm = (TextView)findViewById(R.id.tx_bmi);
+        String bmi = intent.getStringExtra("BMI");
+        bm.setText("BMI:"+bmi);
         Calendar cal = Calendar.getInstance();
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)-1;
         int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minute = cal.get(Calendar.MINUTE);
+
         int day;
         if(dayOfWeek==0){
             day=0;
@@ -56,7 +63,7 @@ public class page4 extends Activity {
         {
             day = 7-dayOfWeek;
         }
-        tx.setText("本週結束還剩:"+day+"天"+(24-hour)+"小時");
+        tx.setText("本週結束還剩:"+day+"天"+(24-hour)+"小時"+(60-minute)+"分");
         Thread t = new Thread(runnable);
         t.start();
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,7 +75,23 @@ public class page4 extends Activity {
         });
         listShow = new ArrayList<Boolean>();
         list = new ArrayList<String>();
-        for(int x=1;x<7;x++) {
+        Random rand = new Random();
+        int num = rand.nextInt(4)+3;
+        int[] index = new int[num];
+        for (int i = 0;i<num;i++){
+            index[i] = i;
+        }
+        int count = 0,temp,change1,change2;
+        while (count!=20){
+            change2 = rand.nextInt(num);
+            change1 = rand.nextInt(num);
+            temp = index[change1];
+            index[change1] = index[change2];
+            index[change2] = temp;
+            count++;
+        }
+        String[] names = {""};
+        for(int x=1;x<=num;x++) {
             list.add("專案" + x);
             listShow.add(false);
         }
@@ -86,7 +109,7 @@ public class page4 extends Activity {
                     }
                 }
                 if(flag == 1){
-                    Toast.makeText(page4.this, "還沒完成", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(page4.this, "還沒做完哦", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -120,6 +143,7 @@ public class page4 extends Activity {
                 case msgKey1:
                     Calendar cal = Calendar.getInstance();
                     int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)-1;
+                    int minute = cal.get(Calendar.MINUTE);
                     int day;
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if(dayOfWeek==0){
@@ -129,11 +153,19 @@ public class page4 extends Activity {
                     {
                         day = 7-dayOfWeek;
                     }
-                    tx.setText("本週結束還剩:"+day+"天"+(24-hour)+"小時");
+                    tx.setText("本週結束還剩:"+day+"天"+(24-hour)+"小時"+(60-minute)+"分");
+                    if(day==0 && hour == 24 && minute == 60){
+                        refresh();
+                    }
                     break;
                 default:
                     break;
             }
         }
     };
+    public void refresh() {
+
+        onCreate(null);
+
+    }
 }

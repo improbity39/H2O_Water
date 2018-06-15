@@ -18,6 +18,7 @@ public class page3 extends AppCompatActivity {
     private TextView txtProgress;
     private ProgressBar progressBar;
     private float pStatus = 0;
+    private String bm;
     private Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class page3 extends AppCompatActivity {
         setContentView(R.layout.activity_page3);
         Intent intent = getIntent();
         String bmi = intent.getStringExtra("BMI_EXTRA");
+        bm = bmi;
         String age = intent.getStringExtra("AGE_EXTRA");
         DecimalFormat df1 = new DecimalFormat("#.00");
         txtProgress = (TextView) findViewById(R.id.txtProgress);
@@ -72,6 +74,7 @@ public class page3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(page3.this,page4.class);
+                intent.putExtra("BMI",bm);
                 startActivity(intent);
             }
         });
