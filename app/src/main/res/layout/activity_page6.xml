@@ -87,12 +87,10 @@
                 android:text="給予意見"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/pt_opinionInput"
+            <MultiAutoCompleteTextView
+                android:id="@+id/tv_opinionContent"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="150dp" />
 
             <Button
                 android:id="@+id/bt_sentAndExit"

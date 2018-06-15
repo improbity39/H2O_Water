@@ -1,6 +1,8 @@
 package com.example.user.page2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 
 import static android.widget.Toast.*;
+import static com.example.user.page2.page1.APP_DATA;
 
 public class page2 extends AppCompatActivity {
     private Button btn_check;
@@ -27,12 +30,14 @@ public class page2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2);
         Intent intent = getIntent();
+        SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
         btn_check = (Button)this.findViewById(R.id.btn_check);
         btn_boy = (Button)this.findViewById(R.id.btn_boy);
         btn_girl = (Button)this.findViewById(R.id.btn_girl);
         age = (EditText)this.findViewById(R.id.age);
         weight = (EditText)this.findViewById(R.id.weight);
         height = (EditText)this.findViewById(R.id.height);
+        final SharedPreferences.Editor edit = pref.edit();
         final DecimalFormat mDecimalFormat = new DecimalFormat("#.00");
         btn_boy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +64,8 @@ public class page2 extends AppCompatActivity {
                 {
                     float weight1 = Float.parseFloat(weight.getEditableText().toString());
                     float height1 = Float.parseFloat(height.getEditableText().toString());
+                    edit.putFloat("KEY_WEIGHT1",weight1);
+                    edit.apply();
                     float bmi = weight1/(height1*height1/10000);
                     int AGE = Integer.parseInt(age.getEditableText().toString());
                     String bmi_str =mDecimalFormat.format(bmi);

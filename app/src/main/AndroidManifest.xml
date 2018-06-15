@@ -20,6 +20,7 @@
         <activity android:name=".page2" />
         <activity android:name=".page5" />
         <activity android:name=".page4" />
+        <activity android:name=".page6" />
         <activity android:name=".ListAdapter"></activity>
     </application>
 
