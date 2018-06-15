@@ -1,6 +1,8 @@
 package com.example.user.page2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+
+import static com.example.user.page2.page1.APP_DATA;
 
 public class page3 extends AppCompatActivity {
     protected TextView edt_bmi;
@@ -27,6 +31,10 @@ public class page3 extends AppCompatActivity {
         Intent intent = getIntent();
         String bmi = intent.getStringExtra("BMI_EXTRA");
         bm = bmi;
+        SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = pref.edit();
+        editor.putString("BMI",bm);
+        editor.apply();
         String age = intent.getStringExtra("AGE_EXTRA");
         DecimalFormat df1 = new DecimalFormat("#.00");
         txtProgress = (TextView) findViewById(R.id.txtProgress);
@@ -65,8 +73,10 @@ public class page3 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                moveTaskToBack(true);
-                android.os.Process.killProcess(android.os.Process.myPid());
+                Intent intent = new Intent(page3.this,page1.class);
+                startActivity(intent);
+//                moveTaskToBack(true);
+//                android.os.Process.killProcess(android.os.Process.myPid());
             }
         });
         next.setOnClickListener(new Button.OnClickListener(){
@@ -74,7 +84,7 @@ public class page3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(page3.this,page4.class);
-                intent.putExtra("BMI",bm);
+                //intent.putExtra("BMI",bm);
                 startActivity(intent);
             }
         });

@@ -57,13 +57,15 @@ public class page4 extends Activity {
         listview = (ListView) findViewById(R.id.lt);
         tx = (TextView) findViewById(R.id.txv);
         bm = (TextView) findViewById(R.id.tx_bmi);
-        String bmi = intent.getStringExtra("BMI");
+        String bmi = pref.getString("BMI", null);
+        bm.setText("BMI:" + bmi);
+        //String bmi = intent.getStringExtra("BMI");
         listShow = new ArrayList<Boolean>();
         list = new ArrayList<String>();
         if (first_p4 == true) {
             editor.putBoolean("KEY_FIRST_p4", false);
-            bm.setText("BMI:" + bmi);
-            editor.putString("BMI", bmi);
+            //bm.setText("BMI:" + bmi);
+            //editor.putString("BMI", bmi);
             Random rand = new Random();
             int num = rand.nextInt(4) + 3;
             editor.putInt("rand",num);
@@ -90,9 +92,9 @@ public class page4 extends Activity {
             editor.apply();
 
         } else {
-            bmi = pref.getString("BMI", null);
+            //bmi = pref.getString("BMI", null);
             int num_list = pref.getInt("rand",0);
-            bm.setText("BMI:" + bmi);
+            //bm.setText("BMI:" + bmi);
             for(int i = 0;i<num_list;i++){
                 list.add(pref.getString("list"+i,null));
                 listShow.add(pref.getBoolean("listshow"+i,false));
