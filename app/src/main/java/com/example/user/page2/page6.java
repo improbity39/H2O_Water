@@ -87,7 +87,8 @@ public class page6 extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
+            //finish();
+            edt.setText("");
             Log.i("Finish sending email...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(page6.this,
