@@ -13,6 +13,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -32,10 +34,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.user.page2.R.menu.main;
 import static com.example.user.page2.page1.APP_DATA;
 
 
-public class page4 extends Activity {
+public class page4 extends AppCompatActivity {
 
     List<String> list;
     ListView listview;
@@ -240,5 +243,22 @@ public class page4 extends Activity {
 
         onCreate(null);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(main,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.mi_reset:
+                Intent intent = new Intent(this,page2.class);
+                startActivity(intent);
+                break;
+        }
+        return false;
     }
 }
