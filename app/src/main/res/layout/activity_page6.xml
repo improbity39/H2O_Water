@@ -80,11 +80,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/Textview32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="建議(使用信箱)"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/commit_email"
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/sendEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="send email" />
+
             <Button
                 android:id="@+id/bt_sentAndExit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="返回起始頁面" />
+                android:text="繼續新的一周減重計畫" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

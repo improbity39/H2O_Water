@@ -43,4 +43,8 @@ public class page5 extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(false);
+    }
 }
