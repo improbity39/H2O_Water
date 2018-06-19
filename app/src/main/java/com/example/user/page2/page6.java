@@ -47,6 +47,7 @@ public class page6 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 edit.putFloat("KEY_WEIGHT1",weight2);
+                edit.putBoolean("KEY_FIRST",true);
                 edit.apply();
                 Intent intent1 = new Intent(page6.this,page1.class);
                 startActivity(intent1);

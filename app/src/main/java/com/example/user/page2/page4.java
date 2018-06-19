@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -67,7 +68,7 @@ public class page4 extends Activity {
             //bm.setText("BMI:" + bmi);
             //editor.putString("BMI", bmi);
             Random rand = new Random();
-            int num = rand.nextInt(4) + 3;
+            int num = rand.nextInt(3) + 4;
             editor.putInt("rand",num);
             int[] index = new int[num];
             for (int i = 0; i < num; i++) {
@@ -82,15 +83,27 @@ public class page4 extends Activity {
                 index[change2] = temp;
                 count++;
             }
-            String[] names = {""};
-            for (int x = 0; x < num; x++) {
-                list.add("專案" + (x+1));
-                listShow.add(false);
-                editor.putString("list"+x,list.get(x));
-                editor.putBoolean("listshow"+x,listShow.get(x));
+            Float bmi_float = Float.parseFloat(bmi);
+            if(bmi_float>=25){
+                String[] names = {"每次運動至少30分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少運動3次","少吃油炸物"};
+                for (int x = 0; x < num; x++) {
+                    list.add(names[index[x]]);
+                    listShow.add(false);
+                    editor.putString("list"+x,list.get(x));
+                    editor.putBoolean("listshow"+x,listShow.get(x));
+                }
+                editor.apply();
             }
-            editor.apply();
-
+            else{
+                String[] names = {"每次運動至少40分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少運動3次","少吃油炸物"};
+                for (int x = 0; x < num; x++) {
+                    list.add(names[index[x]]);
+                    listShow.add(false);
+                    editor.putString("list"+x,list.get(x));
+                    editor.putBoolean("listshow"+x,listShow.get(x));
+                }
+                editor.apply();
+            }
         } else {
             //bmi = pref.getString("BMI", null);
             int num_list = pref.getInt("rand",0);
