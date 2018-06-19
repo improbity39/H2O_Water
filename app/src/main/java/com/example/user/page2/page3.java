@@ -33,14 +33,19 @@ public class page3 extends AppCompatActivity {
         bm = bmi;
         SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = pref.edit();
-        editor.putString("BMI",bm);
-        editor.apply();
+
         String age = intent.getStringExtra("AGE_EXTRA");
         DecimalFormat df1 = new DecimalFormat("#.00");
+        float weight1 = pref.getFloat("KEY_WEIGHT1",0);//+++
+        float height = pref.getFloat("KEY_HIGHT",0);//+++
+        Float bmi22 = weight1/(height*height/10000);//++++
+        String bmi2  =df1.format(bmi22);//bmi22.toString(); //++++
+         editor.putString("BMI",bmi2);
+        editor.apply();
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        final Double a = Double.parseDouble(bmi);
-        System.out.println(a);
+        //final Double a = Double.parseDouble(bmi);
+        final Double a = Double.parseDouble(bmi2);//++++
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +73,7 @@ public class page3 extends AppCompatActivity {
         edt_bmi = (TextView)findViewById(R.id.edt_bmi);
         exit = (Button)findViewById(R.id.bt_exit);
         next = (Button)findViewById(R.id.bt_next);
-        edt_bmi.setText(bmi);
+        edt_bmi.setText(bmi2);//++++++++++
         exit.setOnClickListener(new Button.OnClickListener(){
 
             @Override

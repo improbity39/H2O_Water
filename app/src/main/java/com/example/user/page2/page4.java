@@ -88,7 +88,7 @@ public class page4 extends AppCompatActivity {
             }
             Float bmi_float = Float.parseFloat(bmi);
             if(bmi_float>=25){
-                String[] names = {"每次運動至少30分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少運動3次","少吃油炸物"};
+                String[] names = {"每次運動至少40分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少5天有運動","本周攝取油炸物少於1天"};
                 for (int x = 0; x < num; x++) {
                     list.add(names[index[x]]);
                     listShow.add(false);
@@ -98,7 +98,7 @@ public class page4 extends AppCompatActivity {
                 editor.apply();
             }
             else{
-                String[] names = {"每次運動至少40分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少運動3次","少吃油炸物"};
+                String[] names = {"每次運動至少30分鐘","多吃水果、蔬菜以及穀類","保持愉悅心情","多喝白開水，每天2000CC","每周至少3天有運動","本周攝取油炸物少於3天"};
                 for (int x = 0; x < num; x++) {
                     list.add(names[index[x]]);
                     listShow.add(false);

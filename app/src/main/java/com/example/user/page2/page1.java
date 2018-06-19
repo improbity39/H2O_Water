@@ -38,7 +38,7 @@ public class page1 extends AppCompatActivity {
                     Intent intent = new Intent(page1.this,page2.class);
                     startActivity(intent);
                 } else if(cheak_first == false){
-                    Intent intent = new Intent(page1.this,page4.class);
+                    Intent intent = new Intent(page1.this,page3.class);
                     startActivity(intent);
                 }
 

@@ -29,7 +29,7 @@ public class page5 extends AppCompatActivity {
         cheak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!(re_weight.getText().toString().equals(""))){
+                if (re_weight.length()!=0){
                     float weight = Float.parseFloat(re_weight.getEditableText().toString());
                     edit.putFloat("KEY_REWEIGHT",weight);
                     edit.apply();

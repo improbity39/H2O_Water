@@ -81,6 +81,7 @@ public class page2 extends AppCompatActivity {
                     }
                     Intent intent = new Intent(page2.this,page3.class);
                     intent.putExtra("BMI_EXTRA",bmi_str);
+
                     intent.putExtra("AGE_EXTRA",AGE);
                     startActivity(intent);
 
