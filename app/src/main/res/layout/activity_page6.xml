@@ -80,23 +80,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="給予意見"
-                android:textSize="20sp" />
-
-            <MultiAutoCompleteTextView
-                android:id="@+id/tv_opinionContent"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
             <Button
                 android:id="@+id/bt_sentAndExit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="送出並關閉" />
+                android:text="返回起始頁面" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -45,5 +45,5 @@ public class page1 extends AppCompatActivity {
             }
         });
     }
-    
+
 }
