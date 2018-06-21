@@ -220,6 +220,7 @@ public class page4 extends AppCompatActivity {
                     Calendar cal = Calendar.getInstance();
                     int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK)-1;
                     int minute = cal.get(Calendar.MINUTE);
+                    int second = cal.get(Calendar.SECOND);
                     int day;
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if(dayOfWeek==0){
@@ -229,9 +230,13 @@ public class page4 extends AppCompatActivity {
                     {
                         day = 7-dayOfWeek;
                     }
-                    tx.setText("本週結束還剩:"+day+"天"+(24-hour)+"小時"+(60-minute)+"分");
-                    if(day==0 && hour == 24 && minute == 60){
-                        refresh();
+                    tx.setText("本週結束還剩:"+day+"天"+(24-hour-1)+"小時"+(60-minute-1)+"分");
+                    if(day==0 && hour == 23 && minute == 59 && second == 59 ){
+                        SharedPreferences pref = getApplication().getSharedPreferences(APP_DATA, Context.MODE_PRIVATE);
+                        final SharedPreferences.Editor editor = pref.edit();
+                        editor.putBoolean("KEY_FIRST_p4",true);
+                        editor.apply();
+                        recreate();
                     }
                     break;
                 default:
@@ -239,11 +244,11 @@ public class page4 extends AppCompatActivity {
             }
         }
     };
-    public void refresh() {
+    /*public void refresh() {
 
         onCreate(null);
 
-    }
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //return super.onCreateOptionsMenu(menu);
